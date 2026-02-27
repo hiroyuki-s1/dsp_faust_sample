@@ -1,0 +1,106 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    // ─────────────────────────────────────────────
+    // 1. Syntax check — fast feedback
+    // ─────────────────────────────────────────────
+    {
+      "label": "Faust: Check Syntax",
+      "type": "shell",
+      "command": "faust -wall ${file} -o /dev/null",
+      "group": "build",
+      "presentation": {
+        "reveal": "always",
+        "panel": "shared"
+      },
+      "problemMatcher": {
+        "owner": "faust",
+        "fileLocation": ["absolute"],
+        "pattern": {
+          "regexp": "^(.+):(\\d+):\\s+(ERROR|WARNING):\\s+(.+)$",
+          "file": 1,
+          "line": 2,
+          "severity": 3,
+          "message": 4
+        }
+      }
+    },
+
+    // ─────────────────────────────────────────────
+    // 2. Generate C++ (minimal architecture)
+    // ─────────────────────────────────────────────
+    {
+      "label": "Faust: Generate C++",
+      "type": "shell",
+      "command": "make gen TARGET=${fileBasenameNoExtension}",
+      "group": "build",
+      "presentation": {
+        "reveal": "always",
+        "panel": "shared"
+      },
+      "problemMatcher": []
+    },
+
+    // ─────────────────────────────────────────────
+    // 3. Generate C++ for Daisy Seed
+    // ─────────────────────────────────────────────
+    {
+      "label": "Faust: Generate C++ for Daisy Seed",
+      "type": "shell",
+      "command": "bash scripts/gen_daisy.sh ${file}",
+      "group": "build",
+      "presentation": {
+        "reveal": "always",
+        "panel": "shared"
+      },
+      "problemMatcher": []
+    },
+
+    // ─────────────────────────────────────────────
+    // 4. Generate block diagram SVG
+    // ─────────────────────────────────────────────
+    {
+      "label": "Faust: Generate Diagram",
+      "type": "shell",
+      "command": "make diagram TARGET=${fileBasenameNoExtension} && echo 'Open gen/${fileBasenameNoExtension}-svg/'",
+      "group": "build",
+      "presentation": {
+        "reveal": "always",
+        "panel": "shared"
+      },
+      "problemMatcher": []
+    },
+
+    // ─────────────────────────────────────────────
+    // 5. Check + Generate C++ (combined)
+    // ─────────────────────────────────────────────
+    {
+      "label": "Faust: Check + Generate C++",
+      "dependsOrder": "sequence",
+      "dependsOn": [
+        "Faust: Check Syntax",
+        "Faust: Generate C++"
+      ],
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      },
+      "problemMatcher": []
+    },
+
+    // ─────────────────────────────────────────────
+    // 6. Show parameters from config
+    // ─────────────────────────────────────────────
+    {
+      "label": "Show Parameters",
+      "type": "shell",
+      "command": "python3 scripts/print_params.py params/default.json",
+      "group": "test",
+      "presentation": {
+        "reveal": "always",
+        "panel": "shared"
+      },
+      "problemMatcher": []
+    }
+  ]
+}

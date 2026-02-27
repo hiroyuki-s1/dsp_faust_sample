@@ -1,0 +1,12 @@
+{
+  "recommendations": [
+    // Faust language support (syntax highlight, snippets, error check)
+    "nuchi.faust-vscode",
+    // C++ support for Daisy Seed code
+    "ms-vscode.cpptools",
+    // Better JSON editing (for params/)
+    "zainchen.json",
+    // Makefile support
+    "ms-vscode.makefile-tools"
+  ]
+}

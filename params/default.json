@@ -1,0 +1,70 @@
+{
+  "_comment": "Guitar effect parameter configuration. Edit defaults here.",
+  "sample_rate": 48000,
+  "block_size": 48,
+  "parameters": {
+    "delay_time": {
+      "path": "/delay_reverb/Delay/Time",
+      "label": "Delay Time",
+      "default": 300,
+      "min": 10,
+      "max": 1000,
+      "unit": "ms",
+      "daisy_hardware": "knob1"
+    },
+    "delay_feedback": {
+      "path": "/delay_reverb/Delay/Feedback",
+      "label": "Delay Feedback",
+      "default": 0.5,
+      "min": 0.0,
+      "max": 0.95,
+      "unit": "",
+      "daisy_hardware": "knob2"
+    },
+    "delay_mix": {
+      "path": "/delay_reverb/Delay/Mix",
+      "label": "Delay Mix",
+      "default": 0.4,
+      "min": 0.0,
+      "max": 1.0,
+      "unit": "",
+      "daisy_hardware": "knob3"
+    },
+    "reverb_room": {
+      "path": "/delay_reverb/Reverb/Room",
+      "label": "Reverb Room",
+      "default": 0.7,
+      "min": 0.0,
+      "max": 1.0,
+      "unit": "",
+      "daisy_hardware": "knob4"
+    },
+    "reverb_damp": {
+      "path": "/delay_reverb/Reverb/Damping",
+      "label": "Reverb Damping",
+      "default": 0.5,
+      "min": 0.0,
+      "max": 1.0,
+      "unit": "",
+      "daisy_hardware": "knob5"
+    },
+    "reverb_mix": {
+      "path": "/delay_reverb/Reverb/Mix",
+      "label": "Reverb Mix",
+      "default": 0.3,
+      "min": 0.0,
+      "max": 1.0,
+      "unit": "",
+      "daisy_hardware": "knob6"
+    },
+    "shimmer": {
+      "path": "/delay_reverb/Reverb/Shimmer",
+      "label": "Shimmer",
+      "default": 0.0,
+      "min": 0.0,
+      "max": 0.9,
+      "unit": "",
+      "daisy_hardware": "knob7"
+    }
+  }
+}

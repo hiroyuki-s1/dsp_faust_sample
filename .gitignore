@@ -1,0 +1,6 @@
+gen/*
+!gen/.gitkeep
+*.wav
+*.aiff
+__pycache__/
+daisy/build/

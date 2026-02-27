@@ -1,0 +1,27 @@
+{
+  // Associate .dsp files with Faust
+  "files.associations": {
+    "*.dsp": "faust"
+  },
+
+  // Faust compiler path (after: sudo apt install faust)
+  "faust.faustPath": "/usr/bin/faust",
+
+  // Auto-format on save for JSON files
+  "[json]": {
+    "editor.formatOnSave": true
+  },
+
+  // Show generated files as collapsed
+  "explorer.fileNesting.enabled": true,
+  "explorer.fileNesting.patterns": {
+    "*.dsp": "${capture}.cpp, ${capture}.h, ${capture}-svg"
+  },
+
+  // C++ IntelliSense for Daisy Seed (adjust DAISY_PATH as needed)
+  "C_Cpp.default.includePath": [
+    "${workspaceFolder}/gen",
+    "${env:HOME}/daisy/libdaisy/src",
+    "${env:HOME}/daisy/DaisySP/Source"
+  ]
+}
