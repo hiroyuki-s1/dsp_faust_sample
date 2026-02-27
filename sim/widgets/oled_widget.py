@@ -2,7 +2,7 @@
 import tkinter as tk
 
 OLED_W, OLED_H = 128, 64
-SCALE = 4
+SCALE = 3
 CANVAS_W = OLED_W * SCALE
 CANVAS_H = OLED_H * SCALE
 COLOR_ON = "#00FF88"

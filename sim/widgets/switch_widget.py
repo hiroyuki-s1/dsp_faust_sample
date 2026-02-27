@@ -6,9 +6,10 @@ class ToggleSwitch(tk.Canvas):
     """Stomp-style bypass switch. Click to toggle."""
 
     def __init__(self, parent, label="BYPASS", initial=True,
-                 on_change=None, **kwargs):
+                 on_change=None, bg_color=None, **kwargs):
+        bg = bg_color or "#1a1a1a"
         super().__init__(parent, width=56, height=76,
-                         bg="#1a1a1a", highlightthickness=0, **kwargs)
+                         bg=bg, highlightthickness=0, **kwargs)
         self.state = initial
         self.label = label
         self.on_change = on_change
@@ -40,9 +41,11 @@ class ToggleSwitch(tk.Canvas):
 class MomentaryButton(tk.Canvas):
     """Press-and-release button (e.g., page navigation)."""
 
-    def __init__(self, parent, label="PAGE", on_press=None, **kwargs):
+    def __init__(self, parent, label="PAGE", on_press=None,
+                 bg_color=None, **kwargs):
+        bg = bg_color or "#1a1a1a"
         super().__init__(parent, width=56, height=76,
-                         bg="#1a1a1a", highlightthickness=0, **kwargs)
+                         bg=bg, highlightthickness=0, **kwargs)
         self.label = label
         self.on_press = on_press
         self.pressed = False

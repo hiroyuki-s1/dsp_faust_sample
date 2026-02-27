@@ -2,7 +2,7 @@
 import tkinter as tk
 import math
 
-KNOB_SIZE = 70
+KNOB_SIZE = 60
 ARC_START = 225   # degrees (7 o'clock position, tkinter convention)
 ARC_SWEEP = -270  # clockwise 270 degrees
 
@@ -10,10 +10,11 @@ ARC_SWEEP = -270  # clockwise 270 degrees
 class KnobWidget(tk.Canvas):
     def __init__(self, parent, label="Knob", min_val=0.0, max_val=1.0,
                  default=0.5, unit="", color="#c8a96e",
-                 on_change=None, **kwargs):
+                 on_change=None, bg_color=None, **kwargs):
+        bg = bg_color or "#1a1a1a"
         super().__init__(parent, width=KNOB_SIZE + 16,
-                         height=KNOB_SIZE + 44,
-                         bg="#1a1a1a", highlightthickness=0, **kwargs)
+                         height=KNOB_SIZE + 40,
+                         bg=bg, highlightthickness=0, **kwargs)
         self.min_val = min_val
         self.max_val = max_val
         self.value = default
